@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Build an Image Search Abstraction Layer</title>
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/build-an-image-search-abstraction-layer" target="_blank">Build an Image Search Abstraction Layer</a>
+        </h1>
+    </header>
+    <section>
+        <p>
+            <span class="bold">Objective: </span>Build a full stack JavaScript app that allows you to search for images.
+        </p>
+    </section>
+    <section>
+        <p><span class="bold">User Story: </span></p>
+            <ol>
+                <li>I can get the image URLs, alt text and page urls for a set of images relating to a given search string.</li>
+                <li>I can paginate through the responses by adding a ?offset=2 parameter to the URL.</li>
+                <li>I can get a list of the most recently submitted search strings.</li>
+            </ol>
+    </section>
+    <header>
+        <h2>My implementation</h2>
+    </header>
+    <section>
+        <p class="bold">API endpoint: </p>
+        <ul>
+            <li>
+                <code>https://aromatic-iridium.glitch.me/api/imagesearch/</code>
+                <p><strong>Required parameter: </strong>q</p>
+                <p>If omited error occured and the pixabay search engine send response <a href="#omitted">(see below).</a></p>
+                <p class="margin-left-100">Example usage: 
+                    <code>https://aromatic-iridium.glitch.me/api/imagesearch/?q=&lt;your-search-string&gt;</code>
+                </p>
+                <p><strong>Optional parameter: </strong>offset (minimum: 0, maximum: 98); Recommended step: 10</p>
+                <p class="margin-left-100">Example usage: 
+                    <code>https://aromatic-iridium.glitch.me/api/imagesearch/?q=&lt;your-search-string&gt;&offset=&lt;integer&gt;</code>
+                </p>
+            </li>
+            <li>
+                <code>https://aromatic-iridium.glitch.me//api/latest/imagesearch</code>
+                <p><strong>No parameter required</strong></p>
+                <p class="margin-left-100">Example usage: 
+                    <code>https://aromatic-iridium.glitch.me//api/latest/imagesearch</code>
+                </p>
+            </li>
+        </ul>
+    </section>
+    <section>
+        <p class="bold">Response: </p>
+        <p>JSON array with 10 objects:</p>
+        <table>
+            <tr>
+                <th>Response key</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>context</td>
+                <td>Source page on WEB, which provides the original image.</td>
+            </tr>
+            <tr>
+                <td>snippet</td>
+                <td>A little informations about the image.</td>
+            </tr>
+            <tr>
+                <td>thumbnail</td>
+                <td>Low resolution image.</td>
+            </tr>
+            <tr>
+                <td>url</td>
+                <td>The URL of image with a maximum resolution.</td>
+            </tr>
+        </table>
+        <p>JSON array with 11 objects:</p>
+        <p>I mainly use Custom Search Engine from Google but unfortunately the unlimited version is not free. If my API hit the daily usage limit the Search Engine send an error response. To bypass this issue I built another image search engine used the pixabay API. It is free for use but linking back is greatly appreciated and allows image authors to gain exposure.</p>
+        <p>If the <strong>response</strong> arrive <strong >with 11 object</strong> then the first object consist of an error key.</p>
+        <table>
+            <tr>
+                <td>error</td>
+                <td>Informations about the error. Mainly the daily limit exceeded</td>
+            </tr>
+            <tr>
+                <td>snippet</td>
+                <td>A link to Pixabay is required and you may use any logo for this purpose</td>
+            </tr>
+            <tr>
+                <td>thumbnail</td>
+                <td>A logo for pixabay. (see more thumbnail2-5)</td>
+            </tr>
+            <tr>
+                <td>url</td>
+                <td>Another logo for pixabay. Choose whatever you want or creat your own...</td>
+            </tr>
+        </table>
+        <p>The following response objects are same with the above but there are more one key:</p>
+        <table>
+            <tr>
+                <td>author</td>
+                <td>Name and link to the page of author on pixabay. Please  place this link anywhere on your page if use them photo.</td>
+            </tr>
+        </table>
+        
+    </section>
+    <section>
+        <p class="bold">API endpoint with pixabay:</p>
+        <p>All parameters are optional.</p>
+        <table>
+            <tr>
+                <td id="omitted">q</td>
+                <td>If omitted, all images are returned.</td>
+            </tr>
+            <tr>
+                <td>offset</td>
+                <td>minimum: 0, maximum: 50; Recommended step: 1</td>
+            </tr>
+        </table>
+    </section>
+    <section>
+        <header>
+            <h2>Search from this page</h2>
+        </header>
+        q:
+        <input id="q" type="text" placeholder="... query ..." />
+        offset:
+        <input id="offset" type="number" min="0" max="98" />
+        <button id="go">Go</button><br />
+        <code>https://aromatic-iridium.glitch.me/api/imagesearch/<span id="searchParams"></span></code>
+    </section>
+    <div id="images" class="flex-container"></div>
+    <!-- --------------------   Footer    --------------------    -->
+    <footer> &copy; Developed by Csaba. <span id="developed">2019</span><span id="presentYear"></span>
+        <a href="https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/build-an-image-search-abstraction-layer" target="_blank">
+            <img src="https://cdn.glitch.com/f86248b0-77b3-4b29-a975-0c8865e55efa%2Fthumbnails%2Ffcc-logo-white.png?1577826830201" alt="FreeCodeCamp logo" />
+        </a>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
+
