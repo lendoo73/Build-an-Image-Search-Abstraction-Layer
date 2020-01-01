@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    margin-bottom: 100px;
+}
+
+header {
+    text-align: center;
+}
+
+header a:visited {
+    color: inherit;
+}
+
+section {
+    margin-left: 150px;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+code {
+    background-color: beige;
+}
+
+strong {
+    font-size: 1.1em;
+}
+
+li p {
+    margin-left: 50px;
+}
+
+.margin-left-100 {
+	margin-left: 100px;
+}
+
+a {
+    color: inherit;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(245, 245, 245);
+}
+
+/*  --------------------    Style search section    --------------------    */
+#q, #offset {
+    font-size: 14px; 
+	margin: 20px 0;
+}
+
+#q, #offset, #go {
+    padding: 5px;
+}
+
+#offset {
+	width: 50px;
+}
+
+/*  --------------------    Style images    --------------------    */
+#images .img-container {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 130px;
+}
+
+ #images .img-container:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+#images img {
+    width: 120px;
+}
+
+.img-container h4 {
+	text-align: center;
+    margin-top: 0;
+}
+
+.flex-container {
+	display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(245, 245, 245);
+    margin: 10px 150px;
+}
+
+.flex-container > div {
+	width: 100px;
+    margin: 15px;
+}
+
+/*  --------------------    Style footer    --------------------    */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    --fccGreen: #eee;
+    background-color: transparent;
+    color: transparent;
+    text-align:  left;
+    padding: 8px;
+    transition: background-color 0.8s;
+}
+
+footer img {
+    width: 40px;
+    margin: -10px 10px;
+    float: right; 
+}
+
+footer:hover {
+    --fccGreen: #006600;
+    color: aliceblue;
+    background-color: var(--fccGreen);
+}
+
+@media (orientation: portrait) {
+    * {
+        text-align: center;
+    }
+    
+    section, li p, .margin-left-100 {
+        margin: 10px auto;
+    }
+}
