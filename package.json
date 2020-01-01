@@ -1,0 +1,28 @@
+{
+  "//1": "Take Home Projects",
+  "//2": "https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/build-an-image-search-abstraction-layer",
+  "//3": "updating this file will download and update your packages",
+  "name": "Fcc",
+  "version": "0.0.1",
+  "description": "Build an Image Search Abstraction Layer.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "superagent": "^5.1.3",
+    "express": "^4.16.4"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/hello-express"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
